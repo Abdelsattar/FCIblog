@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="testArray">
+        <item>R.drawable.pic_0</item>
+        <item>R.drawable.pic_1</item>
+        <item>R.drawable.pic_2</item>
+        <item>R.drawable.pic_3</item>
+        <item>R.drawable.pic_4</item>
+        <item>R.drawable.pic_5</item>
+        <item>R.drawable.pic_6</item>
+    </array>
+</resources>

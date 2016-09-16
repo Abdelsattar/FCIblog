@@ -1,11 +1,10 @@
 package com.sattar.fciblog;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
@@ -41,13 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
         check = false;
         circularProgressButton.setIndeterminateProgressMode(true);
-        circularProgressButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
+        circularProgressButton.setOnClickListener(this);
         signUpTV.setOnClickListener(this);
     }
 
@@ -75,12 +68,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             check = false;
         }
         if (passwordStr.matches("")) {
-            emailET.setError("Please enter your password");
+            passwordET.setError("Please enter your password");
             check = false;
         }
 
 
         if (check) {
+            emailET.setEnabled(false);
+            passwordET.setEnabled(false);
             circularProgressButton.setProgress(50);
             // TODO check user exist Task here
         } else {

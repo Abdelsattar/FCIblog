@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,68 +10,74 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sattar.fciblog.LoginActivity">
 
-    <ImageView
-        android:id="@+id/login_logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/image" />
-
-    <EditText
-        android:id="@+id/login_email"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_logo"
-        android:layout_marginEnd="@dimen/outer"
-        android:layout_marginLeft="@dimen/outer"
-        android:layout_marginRight="@dimen/outer"
-        android:layout_marginStart="@dimen/outer"
-        android:layout_marginTop="@dimen/outer"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/login_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_email"
-        android:layout_marginEnd="@dimen/outer"
-        android:layout_marginLeft="@dimen/outer"
-        android:layout_marginRight="@dimen/outer"
-        android:layout_marginStart="@dimen/outer"
-        android:layout_marginTop="12dp"
-        android:hint="@string/password"
-        android:inputType="textPassword" />
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/image" />
 
-    <com.dd.CircularProgressButton
-        android:id="@+id/login_loginBT"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/login_password"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="@dimen/inner"
-        android:layout_marginLeft="@dimen/inner"
-        android:layout_marginRight="@dimen/inner"
-        android:layout_marginStart="@dimen/inner"
-        android:layout_marginTop="@dimen/outer"
-        android:text="@string/log_in"
-        android:textColor="#FFFFFF"
-        android:textSize="18dp"
-        app:cpb_cornerRadius="@dimen/inner"
-        app:cpb_iconComplete="@drawable/ic_action_accept"
-        app:cpb_iconError="@android:drawable/ic_delete"
-        app:cpb_selectorIdle="@drawable/idle_state_selector"
-        app:cpb_textIdle="@string/log_in" />
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_logo"
+            android:layout_marginEnd="@dimen/outer"
+            android:layout_marginLeft="@dimen/outer"
+            android:layout_marginRight="@dimen/outer"
+            android:layout_marginStart="@dimen/outer"
+            android:layout_marginTop="@dimen/outer"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_loginBT"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/normal"
-        android:text="@string/create_account"
-        android:id="@+id/login_signUpTV"
-        android:textSize="@dimen/normal" />
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_email"
+            android:layout_marginEnd="@dimen/outer"
+            android:layout_marginLeft="@dimen/outer"
+            android:layout_marginRight="@dimen/outer"
+            android:layout_marginStart="@dimen/outer"
+            android:layout_marginTop="12dp"
+            android:hint="@string/password"
+            android:inputType="textPassword" />
 
-</RelativeLayout>
+        <com.dd.CircularProgressButton
+            android:id="@+id/login_loginBT"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/login_password"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/inner"
+            android:layout_marginLeft="@dimen/inner"
+            android:layout_marginRight="@dimen/inner"
+            android:layout_marginStart="@dimen/inner"
+            android:layout_marginTop="@dimen/outer"
+            android:text="@string/log_in"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            app:cpb_cornerRadius="@dimen/inner"
+            app:cpb_iconComplete="@drawable/ic_action_accept"
+            app:cpb_iconError="@android:drawable/ic_delete"
+            app:cpb_selectorIdle="@drawable/idle_state_selector"
+            app:cpb_textIdle="@string/log_in" />
+
+        <TextView
+            android:id="@+id/login_signUpTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_loginBT"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/normal"
+            android:text="@string/create_account"
+            android:textSize="@dimen/normal" />
+
+    </RelativeLayout>
+
+</ScrollView>
