@@ -40,7 +40,8 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         Log.d("Post Type", viewType + "");
         if (viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_profile, viewGroup, false);
+//            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_profile, viewGroup, false);
+            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_new_post, viewGroup, false);
             return new HeaderViewHolder(v);
         } else {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycle_view_post_item, viewGroup, false);
@@ -84,9 +85,9 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
-            profileImage = (ImageView) itemView.findViewById(R.id.header_profile_pic);
-            userName = (TextView) itemView.findViewById(R.id.header_user_name);
-            userEmail = (TextView) itemView.findViewById(R.id.header_user_email);
+//            profileImage = (ImageView) itemView.findViewById(R.id.header_profile_pic);
+//            userName = (TextView) itemView.findViewById(R.id.header_user_name);
+//            userEmail = (TextView) itemView.findViewById(R.id.header_user_email);
         }
     }
 
