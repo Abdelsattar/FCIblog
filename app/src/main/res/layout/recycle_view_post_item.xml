@@ -18,7 +18,7 @@
                 android:id="@+id/card_view_profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/pic_6" />
+                android:src="@drawable/pic_19" />
 
             <LinearLayout
                 android:id="@+id/lin_post"
@@ -32,6 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
+                    android:id="@+id/card_view_user_name"
                     android:text="@string/user_name"
                     android:textColor="#302e2e"
                     android:textSize="20sp" />
@@ -40,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
+                    android:id="@+id/card_view_time_posted"
                     android:text="@string/time_posted" />
 
                 <LinearLayout
@@ -54,6 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:id="@+id/card_view_post_content"
                     android:text="@string/dummy_post" />
             </LinearLayout>
 
@@ -73,9 +76,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lin_post"
+                android:id="@+id/card_view_num_likes"
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="2dp"
-                android:layout_marginTop="1dp"
                 android:layout_toLeftOf="@+id/card_view_like_image_button"
                 android:text="@string/num_likes" />
         </RelativeLayout>

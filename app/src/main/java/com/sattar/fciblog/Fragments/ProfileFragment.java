@@ -43,6 +43,8 @@ public class ProfileFragment extends Fragment {
         posts.add("");
         posts.add("");
         posts.add("");
+        posts.add("");
+        posts.add("");
         RecycleViewAdapter recyclerViewAdapter
                 = new RecycleViewAdapter(getContext(), posts);
 
