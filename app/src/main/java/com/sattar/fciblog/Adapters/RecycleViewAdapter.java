@@ -25,14 +25,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     ArrayList<String> Posts;
     Context context;
+    boolean isProfile;
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    public RecycleViewAdapter(Context context, ArrayList<String> Posts) {
+    public RecycleViewAdapter(Context context, ArrayList<String> Posts, boolean isProfile) {
         this.Posts = Posts;
         this.context = context;
-
+        this.isProfile = isProfile;
     }
 
     @Override
@@ -40,9 +41,14 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         Log.d("Post Type", viewType + "");
         if (viewType == TYPE_HEADER) {
-//            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_profile, viewGroup, false);
-            View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_new_post, viewGroup, false);
-            return new HeaderViewHolder(v);
+            View view;
+            if (isProfile) {
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_profile, viewGroup, false);
+            } else {
+                view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_new_post, viewGroup, false);
+            }
+
+            return new HeaderViewHolder(view);
         } else {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycle_view_post_item, viewGroup, false);
             return new PostViewHolder(v);
