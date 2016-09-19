@@ -1,4 +1,4 @@
-package com.sattar.fciblog.Helpers;
+package com.sattar.fciblog.Adapters;
 
 /**
  * Created by sattar on 16/09/16.

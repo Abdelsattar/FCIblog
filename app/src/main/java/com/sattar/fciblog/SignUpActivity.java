@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.sattar.fciblog.Helpers.GridViewScrollable;
-import com.sattar.fciblog.Helpers.ImageAdapter;
+import com.sattar.fciblog.Adapters.ImageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

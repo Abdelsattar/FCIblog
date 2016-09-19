@@ -1,4 +1,4 @@
-package com.sattar.fciblog.Helpers;
+package com.sattar.fciblog.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
