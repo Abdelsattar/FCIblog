@@ -11,4 +11,12 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="title_activity_home_screen">HomeScreen</string>
+
+
+
+    <string name="num_likes">17k</string>
+    <string name="time_posted">17 min ago</string>
+   <string name="dummy_user_name">Mohammed Abd EL-Sattar</string>
+   <string name="dummy_user_email">m.abdelsattar@gmail.com</string>
+    <string name="dummy_post">Hello guys this is a test post From Mohammed Abd El-Sattar just to make it fit in the card view </string>
 </resources>

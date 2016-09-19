@@ -14,101 +14,109 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <ImageView
-        android:id="@+id/signup_profile_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/image" />
 
 
-    <EditText
-        android:id="@+id/signup_userName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signup_profile_pic"
-        android:layout_marginEnd="@dimen/outer"
-        android:layout_marginLeft="@dimen/outer"
-        android:layout_marginRight="@dimen/outer"
-        android:layout_marginStart="@dimen/outer"
-        android:layout_marginTop="@dimen/outer"
-        android:hint="@string/user_name"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="4dp" />
+        <RelativeLayout
+            android:id="@+id/rel_photo"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="24dp">
 
-    <EditText
-        android:id="@+id/signup_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signup_userName"
-        android:layout_marginEnd="@dimen/outer"
-        android:layout_marginLeft="@dimen/outer"
-        android:layout_marginRight="@dimen/outer"
-        android:layout_marginStart="@dimen/outer"
-        android:layout_marginTop="@dimen/outer"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="4dp" />
-
-    <EditText
-        android:id="@+id/signup_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signup_email"
-        android:layout_marginEnd="@dimen/outer"
-        android:layout_marginLeft="@dimen/outer"
-        android:layout_marginRight="@dimen/outer"
-        android:layout_marginStart="@dimen/outer"
-        android:layout_marginTop="12dp"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:paddingLeft="4dp" />
-
-    <com.sattar.fciblog.Helpers.GridViewScrollable xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/grid_view"
-        android:layout_margin="@dimen/inner"
-        android:padding="@dimen/inner"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_below="@+id/signup_password"
-        android:numColumns="auto_fit"
-        android:columnWidth="60dp"
-        android:horizontalSpacing="10dp"
-        android:verticalSpacing="10dp"
-        android:gravity="center"
-        android:stretchMode="columnWidth" />
+            <ImageView
+                android:id="@+id/signup_profile_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/image" />
+        </RelativeLayout>
 
 
-    <com.dd.CircularProgressButton
-        android:id="@+id/signup_signUpBT"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/grid_view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="@dimen/inner"
-        android:layout_marginLeft="@dimen/inner"
-        android:layout_marginRight="@dimen/inner"
-        android:layout_marginStart="@dimen/inner"
-        android:layout_marginTop="@dimen/outer"
-        android:text="@string/log_in"
-        android:textColor="#FFFFFF"
-        android:textSize="18dp"
-        app:cpb_selectorIdle="@drawable/idle_state_selector"
-        app:cpb_cornerRadius="@dimen/inner"
-        app:cpb_iconComplete="@drawable/ic_action_accept"
-        app:cpb_iconError="@android:drawable/ic_delete"
-        app:cpb_textIdle="@string/sign_up" />
+        <EditText
+            android:id="@+id/signup_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rel_photo"
+            android:layout_marginEnd="@dimen/outer"
+            android:layout_marginLeft="@dimen/outer"
+            android:layout_marginRight="@dimen/outer"
+            android:layout_marginStart="@dimen/outer"
+            android:layout_marginTop="@dimen/outer"
+            android:hint="@string/user_name"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="4dp" />
 
-    <TextView
-        android:id="@+id/signup_loginTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/signup_signUpBT"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/normal"
-        android:text="@string/have_account"
-        android:textSize="@dimen/normal" />
+        <EditText
+            android:id="@+id/signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_userName"
+            android:layout_marginEnd="@dimen/outer"
+            android:layout_marginLeft="@dimen/outer"
+            android:layout_marginRight="@dimen/outer"
+            android:layout_marginStart="@dimen/outer"
+            android:layout_marginTop="@dimen/outer"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="4dp" />
+
+        <EditText
+            android:id="@+id/signup_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_email"
+            android:layout_marginEnd="@dimen/outer"
+            android:layout_marginLeft="@dimen/outer"
+            android:layout_marginRight="@dimen/outer"
+            android:layout_marginStart="@dimen/outer"
+            android:layout_marginTop="12dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingLeft="4dp" />
+
+        <com.sattar.fciblog.Helpers.GridViewScrollable xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@+id/signup_password"
+            android:layout_margin="@dimen/inner"
+            android:columnWidth="60dp"
+            android:gravity="center"
+            android:horizontalSpacing="10dp"
+            android:numColumns="auto_fit"
+            android:padding="@dimen/inner"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="10dp" />
+
+
+        <com.dd.CircularProgressButton
+            android:id="@+id/signup_signUpBT"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/grid_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/inner"
+            android:layout_marginLeft="@dimen/inner"
+            android:layout_marginRight="@dimen/inner"
+            android:layout_marginStart="@dimen/inner"
+            android:layout_marginTop="@dimen/outer"
+            android:text="@string/log_in"
+            android:textColor="#FFFFFF"
+            android:textSize="18dp"
+            app:cpb_cornerRadius="@dimen/inner"
+            app:cpb_iconComplete="@drawable/ic_action_accept"
+            app:cpb_iconError="@android:drawable/ic_delete"
+            app:cpb_selectorIdle="@drawable/idle_state_selector"
+            app:cpb_textIdle="@string/sign_up" />
+
+        <TextView
+            android:id="@+id/signup_loginTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/signup_signUpBT"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/normal"
+            android:text="@string/have_account"
+            android:textSize="@dimen/normal" />
 
     </RelativeLayout>
 

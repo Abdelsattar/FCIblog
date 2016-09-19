@@ -10,6 +10,7 @@
     <color name="app_background">#f0f0f0</color>
     <color name="fab">#009688</color>
     <color name="hintcolor">#dadada</color>
+    <color name="sep_color">#d7d6d6</color>
 
 
 </resources>
