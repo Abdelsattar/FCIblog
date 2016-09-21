@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sattar.fciblog.Adapters.RecycleViewAdapter;
+import com.sattar.fciblog.Models.Post;
 import com.sattar.fciblog.R;
 
 import java.util.ArrayList;
@@ -18,7 +19,8 @@ import java.util.ArrayList;
  * Created by sattar on 19/09/16.
  */
 public class ProfileFragment extends Fragment {
-    private ArrayList<String> posts;
+
+    private ArrayList<Post> posts;
     private View currentView;
 
     @Override
@@ -40,14 +42,14 @@ public class ProfileFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recycleView.setLayoutManager(layoutManager);
 
-        //TODO repalse posts withe real data
-        posts.add("");
-        posts.add("");
-        posts.add("");
-        posts.add("");
-        posts.add("");
+        //TODO replace posts withe real data
+        posts.add(new Post());
+        posts.add(new Post());
+        posts.add(new Post());
+        posts.add(new Post());
+        posts.add(new Post());
         RecycleViewAdapter recyclerViewAdapter
-                = new RecycleViewAdapter(getContext(), posts,true);
+                = new RecycleViewAdapter(getContext(), posts, true);
 
         recycleView.setAdapter(recyclerViewAdapter);
     }

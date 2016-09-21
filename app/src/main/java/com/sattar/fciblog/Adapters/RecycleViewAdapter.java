@@ -6,7 +6,6 @@ package com.sattar.fciblog.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sattar.fciblog.Models.Post;
 import com.sattar.fciblog.R;
 
 import java.util.ArrayList;
@@ -26,15 +26,15 @@ import java.util.ArrayList;
  */
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    ArrayList<String> Posts;
+    ArrayList<Post> posts;
     Context context;
     boolean isProfile;
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    public RecycleViewAdapter(Context context, ArrayList<String> Posts, boolean isProfile) {
-        this.Posts = Posts;
+    public RecycleViewAdapter(Context context, ArrayList<Post> posts, boolean isProfile) {
+        this.posts = posts;
         this.context = context;
         this.isProfile = isProfile;
     }
@@ -42,7 +42,6 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        Log.d("Post Type", viewType + "");
         if (viewType == TYPE_HEADER) {
             View view;
             if (isProfile) {
@@ -66,24 +65,34 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if (holder instanceof HeaderViewHolder) {
             HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
 
+            if (posts.get(position).getId() != null) {
+                headerHolder.userName.setText(posts.get(position).getOwner().getName());
+                headerHolder.userEmail.setText(posts.get(position).getOwner().getEmail());
+            }
         } else if (holder instanceof AddPostViewHolder) {
             AddPostViewHolder addPostViewHolder = (AddPostViewHolder) holder;
-            addPostViewHolder.addPost.setOnClickListener (new View.OnClickListener () {
+            addPostViewHolder.addPost.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick (View view) {
+                public void onClick(View view) {
                     // TODO here is to add an action to the post Button in Home
-                   makePost();
+                    makePost();
                 }
             });
         } else {
             PostViewHolder postViewHolder = (PostViewHolder) holder;
-//            postViewHolder.userName.setText();
+            if (posts.get(position).getId() != null) {
+                postViewHolder.userName.setText(posts.get(position).getOwner().getName());
+                postViewHolder.postContent.setText(posts.get(position).getOwner().getName());
+                postViewHolder.numLikes.setText(posts.get(position).getOwner().getName());
+                postViewHolder.timePosted.setText(posts.get(position).getOwner().getName());
+            }
         }
     }
 
-    void makePost(){
-        Toast.makeText (context, "Posted", Toast.LENGTH_SHORT).show ();
+    void makePost() {
+        Toast.makeText(context, "Posted", Toast.LENGTH_SHORT).show();
     }
+
     class HeaderViewHolder extends RecyclerView.ViewHolder {
         ImageView profileImage;
         TextView userName;
@@ -97,10 +106,11 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    class AddPostViewHolder extends  RecyclerView.ViewHolder {
+    class AddPostViewHolder extends RecyclerView.ViewHolder {
 
         EditText postContent;
         Button addPost;
+
         public AddPostViewHolder(View itemView) {
             super(itemView);
             postContent = (EditText) itemView.findViewById(R.id.add_post_post_content);
@@ -134,7 +144,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return Posts.size() + 1;
+        return posts.size() + 1;
     }
 
     @Override
