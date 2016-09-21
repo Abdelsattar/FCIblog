@@ -15,8 +15,6 @@ import com.sattar.fciblog.R;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-
 
 /**
  * Created by sattar on 19/09/16.
@@ -25,8 +23,11 @@ public class HomeFragment extends Fragment {
     private ArrayList<Post> posts;
     private View currentView;
 
-    @BindView(R.id.floatAction)
+
     FloatingActionButton addPost;
+
+    RecyclerView recycleView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -36,12 +37,16 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
-    void initScreen(){
+
+    void initScreen() {
+        addPost = (FloatingActionButton) currentView.findViewById(R.id.floatAction);
+         addPost.setVisibility(View.VISIBLE);
         addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 // TODO this is an action for float action button in home fragment
+                recycleView.getLayoutManager().scrollToPosition(0);
             }
         });
 
@@ -50,8 +55,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void setUpRecyclerView() {
-
-        RecyclerView recycleView =
+        recycleView =
                 (RecyclerView) currentView.findViewById(R.id.recycle_view);
         recycleView.setHasFixedSize(true);
 
@@ -68,5 +72,6 @@ public class HomeFragment extends Fragment {
                 = new RecycleViewAdapter(getContext(), posts, false);
 
         recycleView.setAdapter(recyclerViewAdapter);
+
     }
 }

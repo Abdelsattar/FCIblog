@@ -144,7 +144,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return posts.size() + 1;
+        return posts.size() ;
     }
 
     @Override

@@ -19,7 +19,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/floatAction"
         app:fabSize="normal"
-        android:layout_margin="16dp"
         android:layout_gravity="bottom|end"
         android:src="@drawable/add_icon"
         android:visibility="gone"
