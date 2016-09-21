@@ -10,9 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sattar.fciblog.R;
 
@@ -44,11 +47,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             View view;
             if (isProfile) {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_profile, viewGroup, false);
+
+                return new HeaderViewHolder(view);
             } else {
                 view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.header_new_post, viewGroup, false);
+                return new AddPostViewHolder(view);
             }
 
-            return new HeaderViewHolder(view);
         } else {
             View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycle_view_post_item, viewGroup, false);
             return new PostViewHolder(v);
@@ -57,33 +62,28 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        String description = "";
 
-//        if (Posts.get(position).getUser_name() != "null" && Posts.get(position).getUser_name() != null) {
-//            holder.personName.setText(Posts.get(position).getUser_name());
-//            description += Posts.get(position).getUser_name();
-//        }
         if (holder instanceof HeaderViewHolder) {
-//            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
-//            headerHolder.txtTitleHeader.setText ("Header");
-//            headerHolder.txtTitleHeader.setOnClickListener (new View.OnClickListener () {
-//                @Override
-//                public void onClick (View view) {
-//                    Toast.makeText (context, "Clicked Header", Toast.LENGTH_SHORT).show ();
-//                }
-//            });
-        } else if (holder instanceof PostViewHolder) {
-//            FooterViewHolder footerHolder = (FooterViewHolder) holder;
-//            footerHolder.txtTitleFooter.setText ("Footer");
-//            footerHolder.txtTitleFooter.setOnClickListener (new View.OnClickListener () {
-//                @Override
-//                public void onClick (View view) {
-//                    Toast.makeText (context, "Clicked Footer", Toast.LENGTH_SHORT).show ();
-//                }
-//            });
+            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
+
+        } else if (holder instanceof AddPostViewHolder) {
+            AddPostViewHolder addPostViewHolder = (AddPostViewHolder) holder;
+            addPostViewHolder.addPost.setOnClickListener (new View.OnClickListener () {
+                @Override
+                public void onClick (View view) {
+                    // TODO here is to add an action to the post Button in Home
+                   makePost();
+                }
+            });
+        } else {
+            PostViewHolder postViewHolder = (PostViewHolder) holder;
+//            postViewHolder.userName.setText();
         }
     }
 
+    void makePost(){
+        Toast.makeText (context, "Posted", Toast.LENGTH_SHORT).show ();
+    }
     class HeaderViewHolder extends RecyclerView.ViewHolder {
         ImageView profileImage;
         TextView userName;
@@ -91,9 +91,20 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         public HeaderViewHolder(View itemView) {
             super(itemView);
-//            profileImage = (ImageView) itemView.findViewById(R.id.header_profile_pic);
-//            userName = (TextView) itemView.findViewById(R.id.header_user_name);
-//            userEmail = (TextView) itemView.findViewById(R.id.header_user_email);
+            profileImage = (ImageView) itemView.findViewById(R.id.header_profile_pic);
+            userName = (TextView) itemView.findViewById(R.id.header_user_name);
+            userEmail = (TextView) itemView.findViewById(R.id.header_user_email);
+        }
+    }
+
+    class AddPostViewHolder extends  RecyclerView.ViewHolder {
+
+        EditText postContent;
+        Button addPost;
+        public AddPostViewHolder(View itemView) {
+            super(itemView);
+            postContent = (EditText) itemView.findViewById(R.id.add_post_post_content);
+            addPost = (Button) itemView.findViewById(R.id.add_post_button);
         }
     }
 

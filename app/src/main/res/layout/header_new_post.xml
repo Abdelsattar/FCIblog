@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="8dp">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -14,7 +14,7 @@
             android:layout_margin="4dp">
 
             <ImageView
-                android:id="@+id/card_view_profile_image"
+                android:id="@+id/add_post_profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_margin="8dp"
@@ -25,11 +25,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:layout_toRightOf="@+id/card_view_profile_image"
+                android:layout_toRightOf="@+id/add_post_profile_image"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/card_view_user_name"
+                    android:id="@+id/add_post_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
@@ -37,29 +37,23 @@
                     android:textColor="#302e2e"
                     android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/card_view_time_posted"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="@string/time_posted" />
-
                 <LinearLayout
                     android:id="@+id/sep"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
                     android:background="@color/sep_color"
                     android:orientation="vertical" />
 
                 <EditText
-                    android:id="@+id/card_view_post_content"
+                    android:id="@+id/add_post_post_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top"
                     android:padding="8dp"
                     android:inputType="textMultiLine"
-                    android:lines="5"
+                    android:lines="3"
                     android:background="@drawable/edit_text_border"
                     android:layout_margin="8dp"
                     android:hint="@string/post_hint" />
@@ -74,6 +68,7 @@
                 android:layout_alignParentEnd="true"
                 android:text="@string/add_action"
                 android:layout_margin="8dp"
+                android:id="@+id/add_post_button"
                 android:background="@drawable/circle_button"
                 android:textColor="@color/cpb_white"
                 />

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by sattar on 19/09/16.
  */
-public class ProfileFragment extends Fragment {
+public class HomeFragment extends Fragment {
     private ArrayList<String> posts;
     private View currentView;
 
@@ -40,14 +40,13 @@ public class ProfileFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recycleView.setLayoutManager(layoutManager);
 
-        //TODO repalse posts withe real data
         posts.add("");
         posts.add("");
         posts.add("");
         posts.add("");
         posts.add("");
         RecycleViewAdapter recyclerViewAdapter
-                = new RecycleViewAdapter(getContext(), posts,true);
+                = new RecycleViewAdapter(getContext(), posts, false);
 
         recycleView.setAdapter(recyclerViewAdapter);
     }

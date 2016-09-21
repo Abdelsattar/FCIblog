@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.sattar.fciblog.Fragments.HomeFragment;
 import com.sattar.fciblog.Fragments.ProfileFragment;
 import com.sattar.fciblog.Adapters.ViewPagerAdapter;
 
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupViewPager() {
         adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ProfileFragment(), "Home");
+        adapter.addFragment(new HomeFragment(), "Home");
         adapter.addFragment(new ProfileFragment(), "Profile");
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
