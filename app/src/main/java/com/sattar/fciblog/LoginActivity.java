@@ -1,5 +1,6 @@
 package com.sattar.fciblog;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     Boolean check;
     String emailStr, passwordStr;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +51,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
 
             case R.id.login_loginBT: {
-//                login();
+                if(login()){
+                 //TODO make verification task here
+                }
                 startActivity(new Intent(this, HomeActivity.class));
 
                 break;
@@ -58,6 +62,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, SignUpActivity.class));
             }
         }
+    }
+
+    public ProgressDialog makeProgressBar(String message) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(message);
+        return progressDialog;
     }
 
     boolean login() {
@@ -83,6 +94,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             return check;
         }
-        return  check;
+        return check;
     }
 }

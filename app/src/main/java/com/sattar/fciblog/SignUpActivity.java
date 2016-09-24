@@ -1,7 +1,10 @@
 package com.sattar.fciblog;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -12,8 +15,8 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
-import com.sattar.fciblog.Helpers.GridViewScrollable;
 import com.sattar.fciblog.Adapters.ImageAdapter;
+import com.sattar.fciblog.Helpers.GridViewScrollable;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +39,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     TextView signUpTV;
 
     String userNameStr, emailStr, passwordStr;
-
+    Integer imageID;
+    ProgressDialog progressDialog;
     boolean check;
     public Integer[] mThumbIds
             = {
@@ -64,6 +68,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     void initUI() {
         ButterKnife.bind(this);
+        imageID = 0;
 
         circularProgressButton.setOnClickListener(this);
         signUpTV.setOnClickListener(this);
@@ -76,17 +81,32 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 profileImage.setImageResource(mThumbIds[position]);
+//                int integer = 2130837624;
+//                profileImage.setImageResource(integer);
+                Log.d("Image_ID", imageID + "");
 
             }
         });
-       // setGridViewHeightBasedOnChildren(gridView, mThumbIds.length);
+    }
+
+    public ProgressDialog makeProgressBar(String message) {
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(message);
+        return progressDialog;
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.signup_signUpBT: {
-                signUp();
+                if (signUp()) {
+                    //TODO make signUp Task here
+                    Intent intent = new Intent(this, HomeActivity.class);
+//                intent.putExtra("image_ID", imageID);
+                    startActivity(intent);
+                }
+
                 break;
             }
             case R.id.signup_loginTV: {
@@ -106,6 +126,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         if (emailStr.matches("")) {
             email.setError("Please enter your email");
             check = false;
+        } else {
+            if (!Utils.isEmailValid(emailStr)) {
+                email.setError("Email is not valid");
+                check = false;
+            }
         }
         if (passwordStr.matches("")) {
             password.setError("Please enter your password");

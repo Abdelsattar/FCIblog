@@ -4,6 +4,7 @@ package com.sattar.fciblog.Adapters;
  * Created by sattar on 19/09/16.
  */
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -71,11 +72,12 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             }
         } else if (holder instanceof AddPostViewHolder) {
             AddPostViewHolder addPostViewHolder = (AddPostViewHolder) holder;
+            final String postContent = addPostViewHolder.postContent.getText().toString();
             addPostViewHolder.addPost.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // TODO here is to add an action to the post Button in Home
-                    makePost();
+                    makePost(postContent);
                 }
             });
         } else {
@@ -89,8 +91,15 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-    void makePost() {
+    void makePost(String postContent) {
         Toast.makeText(context, "Posted", Toast.LENGTH_SHORT).show();
+    }
+
+    public ProgressDialog makeProgressBar(String message) {
+        ProgressDialog progressDialog = new ProgressDialog(context);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage(message);
+        return progressDialog;
     }
 
     class HeaderViewHolder extends RecyclerView.ViewHolder {
@@ -144,7 +153,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return posts.size() ;
+        return posts.size();
     }
 
     @Override
