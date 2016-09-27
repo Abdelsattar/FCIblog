@@ -1,4 +1,4 @@
-package com.sattar.fciblog;
+package com.sattar.fciblog.Helpers;
 
 import android.content.Context;
 import android.graphics.Bitmap;

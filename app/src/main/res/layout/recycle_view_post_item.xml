@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp">
@@ -14,10 +15,10 @@
             android:layout_margin="4dp">
 
             <ImageView
-                android:layout_margin="8dp"
                 android:id="@+id/card_view_profile_image"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_margin="8dp"
                 android:src="@drawable/pic_19" />
 
             <LinearLayout
@@ -29,19 +30,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/card_view_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:id="@+id/card_view_user_name"
                     android:text="@string/dummy_user_name"
                     android:textColor="#302e2e"
                     android:textSize="20sp" />
 
                 <TextView
+                    android:id="@+id/card_view_time_posted"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:id="@+id/card_view_time_posted"
                     android:text="@string/time_posted" />
 
                 <LinearLayout
@@ -53,15 +54,15 @@
                     android:orientation="vertical" />
 
                 <TextView
+                    android:id="@+id/card_view_post_content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:id="@+id/card_view_post_content"
                     android:text="@string/dummy_post" />
             </LinearLayout>
 
             <ImageButton
-                android:id="@+id/card_view_like_image_button"
+                android:id="@+id/card_view_like_image_"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
@@ -70,13 +71,30 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/like_unactive" />
+                android:src="@drawable/like_unactive"
+                android:visibility="gone" />
+
+            <com.sackcentury.shinebuttonlib.ShineButton
+                android:id="@+id/card_view_like_image_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/lin_post"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:src="@android:color/darker_gray"
+                app:allow_random_color="false"
+                app:btn_color="@color/un_active_like"
+                app:btn_fill_color="@color/active_like"
+                app:siShape="@raw/heart" />
 
             <TextView
+                android:id="@+id/card_view_num_likes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lin_post"
-                android:id="@+id/card_view_num_likes"
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="2dp"
                 android:layout_toLeftOf="@+id/card_view_like_image_button"

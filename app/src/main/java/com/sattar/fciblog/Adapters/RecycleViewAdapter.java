@@ -1,43 +1,44 @@
 package com.sattar.fciblog.Adapters;
 
 /**
- * Created by sattar on 19/09/16.
+ * Created by sattar
+ * on 19/09/2016.
  */
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sackcentury.shinebuttonlib.ShineButton;
 import com.sattar.fciblog.Models.Post;
 import com.sattar.fciblog.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by lenovo on 20/03/2016.
- */
 public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     ArrayList<Post> posts;
     Context context;
     boolean isProfile;
+    FragmentActivity activity;
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
 
-    public RecycleViewAdapter(Context context, ArrayList<Post> posts, boolean isProfile) {
+    public RecycleViewAdapter(Context context,FragmentActivity activity, ArrayList<Post> posts, boolean isProfile) {
         this.posts = posts;
         this.context = context;
         this.isProfile = isProfile;
+        this.activity = activity;
     }
 
     @Override
@@ -83,6 +84,7 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         } else {
             PostViewHolder postViewHolder = (PostViewHolder) holder;
             if (posts.get(position).getId() != null) {
+                postViewHolder.likeImage.init(activity);
                 postViewHolder.userName.setText(posts.get(position).getOwner().getName());
                 postViewHolder.postContent.setText(posts.get(position).getOwner().getName());
                 postViewHolder.numLikes.setText(posts.get(position).getOwner().getName());
@@ -133,12 +135,13 @@ public class RecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         TextView timePosted;
         TextView postContent;
         TextView numLikes;
-        ImageButton likeImage;
+        ShineButton likeImage ;
+
 
         PostViewHolder(View itemView) {
             super(itemView);
             personPic = (ImageView) itemView.findViewById(R.id.card_view_profile_image);
-            likeImage = (ImageButton) itemView.findViewById(R.id.card_view_like_image_button);
+            likeImage = (ShineButton) itemView.findViewById(R.id.card_view_like_image_button);
             userName = (TextView) itemView.findViewById(R.id.card_view_user_name);
             timePosted = (TextView) itemView.findViewById(R.id.card_view_time_posted);
             postContent = (TextView) itemView.findViewById(R.id.card_view_post_content);

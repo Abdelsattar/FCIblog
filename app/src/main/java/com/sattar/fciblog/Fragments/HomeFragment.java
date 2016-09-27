@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
         posts.add(new Post());
 
         RecycleViewAdapter recyclerViewAdapter
-                = new RecycleViewAdapter(getContext(), posts, false);
+                = new RecycleViewAdapter(getContext(),getActivity(),  posts, false);
 
         recycleView.setAdapter(recyclerViewAdapter);
 

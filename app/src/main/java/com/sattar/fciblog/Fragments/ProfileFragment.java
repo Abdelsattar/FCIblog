@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment {
         posts.add(new Post());
         posts.add(new Post());
         RecycleViewAdapter recyclerViewAdapter
-                = new RecycleViewAdapter(getContext(), posts, true);
+                = new RecycleViewAdapter(getContext(), getActivity(), posts, true);
 
         recycleView.setAdapter(recyclerViewAdapter);
     }
