@@ -21,6 +21,7 @@
         app:fabSize="normal"
         android:layout_gravity="bottom|end"
         android:src="@drawable/add_icon"
+        android:layout_margin="16dp"
         android:visibility="gone"
         />
 
